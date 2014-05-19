@@ -31,4 +31,4 @@ Description of what you're modeling: In this second schema i am modeling a socce
 
 
 ## Release 5: Reflection
-I found this exercise to be interesting. It seemed like a very simple introduction to schema, but i also feel like it may be an over simplification and i would still have issues grasping more complex database schemas. I enjoy that it is a very logical connecting of databases, which make it easier to understand. Like everything i think more examples of differnt types would really help to solidify my understanding.
+I found this exercise to be interesting. It seemed like a very simple introduction to schema, but i also feel like it may be an over simplification and i would still have issues grasping more complex database schemas. I enjoy that it is a very logical connecting of databases, which make it easier to understand. Like everything, i think more examples of differnt types would really help to solidify my understanding.
