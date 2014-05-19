@@ -2,7 +2,7 @@
 
 ## Release 0: Create a dummy database
 
-C:\>sqlite3 dummy.db
+C:\>sqlite3 dummy.db  
 SQLite version 3.8.2 2013-12-06 14:53:30
 Enter ".help" for instructions
 Enter SQL statements terminated with a ";"
