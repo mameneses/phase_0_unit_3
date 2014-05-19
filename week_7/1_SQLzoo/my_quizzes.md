@@ -10,9 +10,8 @@
 
 ### Reflection ###
 
-I found SQL to be interesting at the quizzes to be fun. I have always
-enjoyed more hands on work and working through the tutorials and quizzes
+I found SQL to be interesting and the quizzes to be helpful. I have always
+enjoyed more hands on work such as the tutorials and quizzes
 really helped my understanding of SQL and made for good practice. I
 struggled with some of the more advanced concepts in the join section
-when trying to 'count' and 'sort by'. While not incredibly difficult 
-these seem to be essential skills to have when working in tech.
+when trying to 'count' and 'sort by'.
