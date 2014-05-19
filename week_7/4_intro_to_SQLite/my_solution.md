@@ -63,13 +63,13 @@ renamed, removed, or change the constraints. "
 
 sqlite> .schema  
 CREATE TABLE users (  
-  id INTEGER PRIMARY KEY AUTOINCREMENT,  
-  first_name VARCHAR(64) NOT NULL,  
-  last_name  VARCHAR(64) NOT NULL,  
-  email VARCHAR(128) UNIQUE NOT NULL,  
-  created_at DATETIME NOT NULL,  
-  updated_at DATETIME NOT NULL,  
-  nickname VARCHAR(64));  
+   ...> id INTEGER PRIMARY KEY AUTOINCREMENT,  
+   ...> first_name VARCHAR(64) NOT NULL,  
+   ...> last_name  VARCHAR(64) NOT NULL,  
+   ...> email VARCHAR(128) UNIQUE NOT NULL,  
+   ...> created_at DATETIME NOT NULL,  
+   ...> updated_at DATETIME NOT NULL,  
+   ...> nickname VARCHAR(64));  
 sqlite> UPDATE users SET nickname="Mati" WHERE first_name='Matias';  
 sqlite> UPDATE users SET nickname="Kimchee" WHERE first_name='Kimmey';  
 sqlite> select * from users;
