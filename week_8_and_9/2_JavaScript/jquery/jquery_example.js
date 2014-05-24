@@ -3,7 +3,7 @@ $(document).ready(function(){
 //RELEASE 0: 
   //Link this script and the jQuery library to the jquery_example.html file and analyze what this code does. 
  
-$('body').css({'background-color': 'pink'})
+$('body').css({'background-color': 'gray'})
  
 //RELEASE 1:
   //Add code here to select elements of the DOM 
@@ -28,7 +28,7 @@ $('div.mascot h1').html('Chorus Frogs')
 //RELEASE 3: Event Listener
   $('img').on('mouseover', function(e){
      e.preventDefault()
-    $(this).attr('src', 'http://nice-cool-pics.com/data/media/3/western_chorus_frog.jpg')
+    $(this).attr('src', 'http://dwrcdc.nr.utah.gov/rsgis2/images/Photos/pseumacu.jpg')
   })
  
  
