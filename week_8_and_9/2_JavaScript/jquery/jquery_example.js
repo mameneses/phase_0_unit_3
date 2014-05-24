@@ -23,7 +23,7 @@ window.imgElement = imgElement
   // Add code here to modify the css and html of DOM elements
 $('h1').css({'color': 'blue', 'border-style':'outset', 'border-color': 'blue'})
  
-$('div.mascot').html('Chorus Frogs')
+$('div.mascot h1').html('Chorus Frogs')
  
 //RELEASE 3: Event Listener
   $('img').on('mouseover', function(e){
