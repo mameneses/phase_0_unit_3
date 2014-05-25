@@ -7,7 +7,7 @@ variables match (i.e., 'Joseph' is the first element in students; his scores are
 
 Do not alter the students and scores code.
 
-I worked on this challenge [by myself, with:]
+I worked on this challenge by myself]
 
 */
 
@@ -54,15 +54,7 @@ gradebook.getAverage = function getAverage(name) {
 
 // __________________________________________
 // Refactored Solution
-
-var average = function average(grades) {
-  sum = 0
-  for (var i = 0; i < grades.length; i++) {
-  sum += grades[i] 
-  }
-  return sum/grades.length;
-}
-
+// my noobness with JS made this section very difficult for me.
 
 
 
@@ -71,7 +63,9 @@ var average = function average(grades) {
 
 // __________________________________________
 // Reflect
-
+// I am not very comfortable with JS and this assignment took me longer than 
+// it probably should have. It took lots of research to understand the syntax
+// again and made me miss ruby syntax.  
 
 
 
