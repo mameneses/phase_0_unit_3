@@ -1,172 +1,78 @@
-// U3.W8-9: Gradebook from Names and Scores
+	// U3.W8-9: Challenge you're converting
+	// Create a BoggleBoard Class
 
-// I worked on this challenge [by myself, with:]
-// 1. Matias Menese
-// 2. Jason Scott
-// 3. Ronald Ishak
+	// I worked on this challenge with:
+	// 1) Matias
+	// 2) Rj
 
-// These are the votes cast by each student. Do not alter these objects here.
-var votes = {
-  "Alex": { president: "Bob", vicePresident: "Devin", secretary: "Gail", treasurer: "Kerry" },
-  "Bob": { president: "Mary", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
-  "Cindy": { president: "Cindy", vicePresident: "Hermann", secretary: "Bob", treasurer: "Bob" },
-  "Devin": { president: "Louise", vicePresident: "John", secretary: "Bob", treasurer: "Fred" },
-  "Ernest": { president: "Fred", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
-  "Fred": { president: "Louise", vicePresident: "Alex", secretary: "Ivy", treasurer: "Ivy" },
-  "Gail": { president: "Fred", vicePresident: "Alex", secretary: "Ivy", treasurer: "Bob" },
-  "Hermann": { president: "Ivy", vicePresident: "Kerry", secretary: "Fred", treasurer: "Ivy" },
-  "Ivy": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Gail" },
-  "John": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Kerry" },
-  "Kerry": { president: "Fred", vicePresident: "Mary", secretary: "Fred", treasurer: "Ivy" },
-  "Louise": { president: "Nate", vicePresident: "Alex", secretary: "Mary", treasurer: "Ivy" },
-  "Mary": { president: "Louise", vicePresident: "Oscar", secretary: "Nate", treasurer: "Ivy" }, 
-  "Nate": { president: "Oscar", vicePresident: "Hermann", secretary: "Fred", treasurer: "Tracy" },
-  "Oscar": { president: "Paulina", vicePresident: "Nate", secretary: "Fred", treasurer: "Ivy" },
-  "Paulina": { president: "Louise", vicePresident: "Bob", secretary: "Devin", treasurer: "Ivy" },
-  "Quintin": { president: "Fred", vicePresident: "Hermann", secretary: "Fred", treasurer: "Bob" },
-  "Romanda": { president: "Louise", vicePresident: "Steve", secretary: "Fred", treasurer: "Ivy" },
-  "Steve": { president: "Tracy", vicePresident: "Kerry", secretary: "Oscar", treasurer: "Xavier" },
-  "Tracy": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
-  "Ullyses": { president: "Louise", vicePresident: "Hermann", secretary: "Ivy", treasurer: "Bob" },
-  "Valorie": { president: "Wesley", vicePresident: "Bob", secretary: "Alex", treasurer: "Ivy" },
-  "Wesley": { president: "Bob", vicePresident: "Yvonne", secretary: "Valorie", treasurer: "Ivy" },
-  "Xavier": { president: "Steve", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
-  "Yvonne": { president: "Bob", vicePresident: "Zane", secretary: "Fred", treasurer: "Hermann" },
-  "Zane": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Mary" }
-}
+	// 2. Pseudocode
+	// Translate BoggleBoard exercise into a class
+	// migrate all previous methods into instance methods
+	// create new instance method called create_word that will return a string of letters depending on the coordinates given
+	// create new instance method called diagonal that will return the "diagonal" set of letters
 
-// Tally the votes in voteCount.
-var voteCount = {
-  president: {},
-  vicePresident: {},
-  secretary: {},
-  treasurer: {}
-}
+	// Accept dice_grid as an argument in "initializing" BoggleBoard class
+	// Define create_word instance function for BoggleBoard class
+	// Define get_row instance function
+	// Define get_col instance function
+	// *optional* Define get_diagonal
 
-/* The name of each student receiving a vote for an office should become a property 
-of the respective office in voteCount.  After Alex's votes have been tallied, 
-voteCount would be ...
+	// 3. Initial Solution
+	dice_grid = [["b", "r", "a", "e"],
+						   ["i", "o", "d", "t"],
+						   ["e", "c", "l", "r"],
+						   ["t", "a", "k", "e"]]
 
-  var voteCount = {
-    president: { Bob: 1 },
-    vicePresident: { Devin: 1 },
-    secretary: { Gail: 1 },
-    treasurer: { Kerry: 1 }
-  }
+	function BoggleBoard (board_arg) {
+	//@board = board
+			this.board = board_arg;
+			this.create_word = function(coords) {
+				word = "";
+				for (i in coords) {
+				 element = coords[i];
+				 word += this.board[element[0]][element[1]];
+				}
+				console.log(word);
+			}
+			this.get_row = function(row) {
+			  letters = []; 
+			  for (i in this.board) {
+			    letters.push(this.board[i][row])
+			  };
+			  console.log(letters);
+			}
+			this.get_col = function(column) {
+			   console.log(this.board[column])
+			}
+			this.get_diagonal = function(coord) {
+			   letters= [];
+			   x = coord[0]
+			   y = coord[1]
+			   while( x > 0 && y > 0 ) {
+			       x--;
+			       y--;
+			   }
+			   while(x < 3 && y < 3) {
+			       letters.push(this.board[x][y]);
+			       x++;
+			       y++;
+			   }
+			   console.log(letters)
+			}
+	}
 
-*/
+	//boggle_board = BoggleBoard.new(dice_grid)
+	
+	var boggle_board = new BoggleBoard(dice_grid);
 
-
-/* Once the votes have been tallied, assign each officer position the name of the 
-student who received the most votes. */
-var officers = {
-  president: undefined,
-  vicePresident: undefined,
-  secretary: undefined,
-  treasurer: undefined
-}
-
-// Pseudocode
-
-
-// __________________________________________
-// Initial Solution
-
-for ( position in officers ) {
-  for ( allVotesPerPerson in votes ) {
-    if (votes[allVotesPerPerson][position] in voteCount[position]) {
-      voteCount[position][votes[allVotesPerPerson][position]] += 1;
-    } else {
-      voteCount[position][votes[allVotesPerPerson][position]] = 1;
-    }
-  }
-  // tally votes
-  
-  var top = 0;
-  var topCandidate = undefined;
-  
-  for ( candidate in voteCount[position] ) {
-    if ( top < voteCount[position][candidate] ) {
-      top = voteCount[position][candidate];
-      topCandidate = candidate;
-    }
-  }
-  officers[position] = topCandidate;
-}
-
-// __________________________________________
-// Refactored Solution
+	// 4. Refactored Solution
 
 
+	// 1. DRIVER TESTS/ASSERT STATEMENTS GO BELOW THIS LINE
+	boggle_board.create_word([[1,2], [1,1], [2,1], [3,2]])// == "dock"
+	boggle_board.get_row(0)// == ["b", "r", "a", "e"]
+	boggle_board.get_col(0)// == ["b", "i", "e", "t"]
+	boggle_board.get_diagonal([0,0])// == ["b", "o", "l", "e"]
+	boggle_board.get_diagonal([0,1])// == ["r", "d", "r"]
 
-
-
-
-// __________________________________________
-// Reflection
-
-
-
-
-
-
-// __________________________________________
-// Driver Code:  Do not alter code below this line.
-
-
-function assert(test, message, test_number) {
-  if (!test) {
-    console.log(test_number + "false");
-    throw "ERROR: " + message;
-  }
-  console.log(test_number + "true");
-  return true;
-}
-
-assert(
-  (voteCount.president["Bob"] === 3),
-  "Bob should receive three votes for President.",
-  "1. "
-)
-
-assert(
-  (voteCount.vicePresident["Bob"] === 2),
-  "Bob should receive two votes for Vice President.",
-  "2. "
-)
-
-assert(
-  (voteCount.secretary["Bob"] === 2),
-  "Bob should receive two votes for Secretary.",
-  "3. "
-)
-
-assert(
-  (voteCount.treasurer["Bob"] === 4),
-  "Bob should receive four votes for Treasurer.",
-  "4. "
-)
-
-assert(
-  (officers.president === "Louise"),
-  "Louise should be elected President.",
-  "5. "
-)
-
-assert(
-  (officers.vicePresident === "Hermann"),
-  "Hermann should be elected Vice President.",
-  "6. "
-)
-
-assert(
-  (officers.secretary === "Fred"),
-  "Fred should be elected Secretary.",
-  "7. "
-)
-
-assert(
-  (officers.treasurer === "Ivy"),
-  "Ivy should be elected Treasurer.",
-  "8. "
-)
+	// 5. Reflection
