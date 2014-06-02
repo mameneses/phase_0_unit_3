@@ -1,0 +1,1 @@
+<img src="https://raw.githubusercontent.com/mameneses/phase_0_unit_3/master/week_8_and_9/4_SQL/your_own_db/SQL_schema.jpg">
