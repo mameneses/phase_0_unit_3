@@ -1,6 +1,9 @@
 // U3.W8-9: Gradebook from Names and Scores
 
 // I worked on this challenge [by myself, with:]
+// 1. Matias Menese
+// 2. Jason Scott
+// 3. Ronald Ishak
 
 // These are the votes cast by each student. Do not alter these objects here.
 var votes = {
@@ -16,7 +19,7 @@ var votes = {
   "John": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Kerry" },
   "Kerry": { president: "Fred", vicePresident: "Mary", secretary: "Fred", treasurer: "Ivy" },
   "Louise": { president: "Nate", vicePresident: "Alex", secretary: "Mary", treasurer: "Ivy" },
-  "Mary": { president: "Louise", vicePresident: "Oscar", secretary: "Nate", treasurer: "Ivy" },
+  "Mary": { president: "Louise", vicePresident: "Oscar", secretary: "Nate", treasurer: "Ivy" }, 
   "Nate": { president: "Oscar", vicePresident: "Hermann", secretary: "Fred", treasurer: "Tracy" },
   "Oscar": { president: "Paulina", vicePresident: "Nate", secretary: "Fred", treasurer: "Ivy" },
   "Paulina": { president: "Louise", vicePresident: "Bob", secretary: "Devin", treasurer: "Ivy" },
@@ -26,7 +29,7 @@ var votes = {
   "Tracy": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
   "Ullyses": { president: "Louise", vicePresident: "Hermann", secretary: "Ivy", treasurer: "Bob" },
   "Valorie": { president: "Wesley", vicePresident: "Bob", secretary: "Alex", treasurer: "Ivy" },
-  "Wesley": { president: "Bob", vicePresident: "Yvonne", secretary: "Valorie", treasurer: "Ivy" },
+  "Wesley": { president: "Bob", vicePresident: "Yvonne", secretary: "Valorie", treasurer: "Ivy" }, 
   "Xavier": { president: "Steve", vicePresident: "Hermann", secretary: "Fred", treasurer: "Ivy" },
   "Yvonne": { president: "Bob", vicePresident: "Zane", secretary: "Fred", treasurer: "Hermann" },
   "Zane": { president: "Louise", vicePresident: "Hermann", secretary: "Fred", treasurer: "Mary" }
@@ -69,11 +72,27 @@ var officers = {
 // __________________________________________
 // Initial Solution
 
-
-
-
-
-
+for ( position in officers ) {
+  for ( allVotesPerPerson in votes ) {
+    if (votes[allVotesPerPerson][position] in voteCount[position]) {
+      voteCount[position][votes[allVotesPerPerson][position]] += 1;
+    } else {
+      voteCount[position][votes[allVotesPerPerson][position]] = 1;
+    }
+  }
+  // tally votes
+  
+  var top = 0;
+  var topCandidate = undefined;
+  
+  for ( candidate in voteCount[position] ) {
+    if ( top < voteCount[position][candidate] ) {
+      top = voteCount[position][candidate];
+      topCandidate = candidate;
+    }
+  }
+  officers[position] = topCandidate;
+}
 
 // __________________________________________
 // Refactored Solution
