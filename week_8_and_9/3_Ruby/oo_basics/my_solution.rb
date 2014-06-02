@@ -9,12 +9,24 @@
 
 # 3. Initial Solution
 
+ students = [[ "first_name": "Alex", "scores": [100,100,100,0,100]],
+			 ["first_name": "Emma", "scores": [90,90,85,80,80]],
+			 ["first_name": "Carl", "scores": [80,80,75,70,70]],
+		     ["first_name": "Mike", "scores": [70,70,65,60,60]],
+	         ["first_name": "Pete", "scores": [60,60,55,50,50]]
+
 class Student
   attr_accessor :scores, :first_name
+  def initialize(students_scores)   #Use named arguments!
+    @students = []
 
-  def initialize(args)   #Use named arguments!
-    #your code here
   end
+
+  def first_name
+  	students_scores[]
+  end
+
+
 end
 
 
